@@ -1,0 +1,1 @@
+https://api.github.com/repos/PKief/vscode-material-icon-theme/git/trees/main?recursive=1
