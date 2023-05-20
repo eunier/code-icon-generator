@@ -1,6 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import * as rxjs from "@workspace/rxjs";
+import * as abc from "@workspace/rxjs/operators";
 import { AxiosResponse } from 'axios';
 import { firstValueFrom, map } from 'rxjs';
 
