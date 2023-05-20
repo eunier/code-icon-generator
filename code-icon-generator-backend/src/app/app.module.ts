@@ -12,3 +12,5 @@ import { AppService } from 'app/services/app.service';
   providers: [AppService, RxjsService, RxjsOperatorsService],
 })
 export class AppModule {}
+const a  = () => 'a';
+console.log (a ())
