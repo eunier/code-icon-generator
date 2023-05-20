@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import * as rxjs from "@workspace/rxjs";
+import * as rxjsOperators from "@workspace/rxjs/operators";
 
 @Injectable ()
-export class RxjsOperatorsService {}
+export class RxjsOperatorsService {
+  public readonly map = rxjsOperators.map
+}
 
