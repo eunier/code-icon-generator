@@ -11,10 +11,11 @@ export class AppService {
   }
 
   getIcons (): Promise<AxiosResponse<unknown, unknown>> {
-    return firstValueFrom (
-      this._http.get (
-        'https://api.github.com/repos/PKief/vscode-material-icon-theme/git/trees/main?recursive=1',
-      ),
-    );
+    // return firstValueFrom (
+    //   this._http.get (
+    //     'https://api.github.com/repos/PKief/vscode-material-icon-theme/git/trees/main?recursive=1',
+    //   ),
+    // );
+    return firstValueFrom (this._http.get ('https://jsonplaceholder.typicode.com/posts/1'))
   }
 }
