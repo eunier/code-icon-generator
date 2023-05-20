@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, map } from 'rxjs';
 
 @Injectable ()
 export class AppService {
@@ -17,9 +17,11 @@ export class AppService {
     //     'https://api.github.com/repos/PKief/vscode-material-icon-theme/git/trees/main?recursive=1',
     //   ),
     // );
-    
+
     return firstValueFrom (
-      this._http.get ('https://jsonplaceholder.typicode.com/posts/1'),
+      this._http
+        .get ('https://jsonplaceholder.typicode.com/posts/1')
+        .pipe (map ((res) => res.data)),
     );
   }
 }
