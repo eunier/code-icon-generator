@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import {a}from "@workspace/rxjs";
+import { a } from "@workspace/rxjs";
 
 @Injectable ()
 export class RxjsService {}
-a
+const b  = a ()

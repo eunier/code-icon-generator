@@ -12,6 +12,9 @@
   ],
   "compilerOptions": {
     "esModuleInterop": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "@workspace/rxjs": ["../../libs/rxjs/src/index.ts"]
+    }
   }
 }
