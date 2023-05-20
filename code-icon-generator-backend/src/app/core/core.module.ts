@@ -1,5 +1,6 @@
-import { Module } from '@nestjs/common';
-import { ServicesModule } from 'app/core/services/services.module';
+// import { Module } from '@nestjs/common';
+// import { RxjsOperatorsService } from 'app/core/services/rxjs-operators/rxjs-operators.service';
+// import { RxjsService } from 'app/core/services/rxjs/rxjs.service';
 
-@Module ({imports: [ServicesModule]})
-export class CoreModule {}
+// @Module ({ providers: [RxjsOperatorsService, RxjsService] })
+// export class CoreModule {}
