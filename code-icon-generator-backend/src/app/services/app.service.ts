@@ -13,7 +13,7 @@ export class AppService {
   }
 
   public getIcons (): Promise<AxiosResponse<unknown, unknown>> {
-    console.log (rxjs);
+
     return firstValueFrom (
       this._http
         .get (
