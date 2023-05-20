@@ -1,5 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
+import * as rxjs from "@workspace/rxjs";
 import { AxiosResponse } from 'axios';
 import { firstValueFrom, map } from 'rxjs';
 
@@ -12,6 +13,7 @@ export class AppService {
   }
 
   public getIcons (): Promise<AxiosResponse<unknown, unknown>> {
+    console.log (rxjs);
     return firstValueFrom (
       this._http
         .get (
