@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "baseUrl": "./src",
     "paths": {
-      "@workspace/rxjs": ["../../libs/rxjs/src/index.ts"]
+      "@workspace/rxjs": ["../../../libs/rxjs/src/index.ts"]
     }
   }
 }
