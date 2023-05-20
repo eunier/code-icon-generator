@@ -14,7 +14,6 @@ export class AppController {
 
   @Get ('icons')
   public getIcons (): Promise<AxiosResponse<unknown, unknown>> {
-    debugger;
     return this._service.getIcons ();
   }
 }
