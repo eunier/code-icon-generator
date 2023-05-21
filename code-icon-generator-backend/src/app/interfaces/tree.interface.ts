@@ -1,4 +1,4 @@
-export interface ITree {
+export interface Tree {
   path: string;
   mode: string;
   type: string;

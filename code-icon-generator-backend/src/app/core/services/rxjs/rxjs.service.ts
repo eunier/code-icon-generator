@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { IRxjs } from '@workspace/rxjs/interfaces';
+import { Rxjs } from '@workspace/rxjs/interfaces';
 import { firstValueFrom, map, mergeMap, switchMap, tap, zip } from 'rxjs';
 
 @Injectable ()
 export class RxjsService
   implements
     Pick<
-      IRxjs,
+      Rxjs,
       'firstValueFrom' | 'map' | 'mergeMap' | 'tap' | 'switchMap' | 'zip'
     >
 {
