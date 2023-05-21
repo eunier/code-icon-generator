@@ -1,7 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from 'app/app.service';
-import { ITree } from 'app/interfaces/tree.interface';
-import { Observable } from 'rxjs';
 
 @Controller ()
 export class AppController {
@@ -13,7 +11,7 @@ export class AppController {
   }
 
   @Get ('icons')
-  public getIcons ():Observable<ITree[]> {
+  public getIcons () {
     return this._service.getIcons ();
   }
 }
