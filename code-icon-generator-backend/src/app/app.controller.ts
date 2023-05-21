@@ -1,6 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from 'app/app.service';
-import { AxiosResponse } from 'axios';
 
 @Controller ()
 export class AppController {
@@ -12,7 +11,7 @@ export class AppController {
   }
 
   @Get ('icons')
-  public getIcons (): Promise<AxiosResponse<unknown, unknown>> {
+  public getIcons () {
     return this._service.getIcons ();
   }
 }
