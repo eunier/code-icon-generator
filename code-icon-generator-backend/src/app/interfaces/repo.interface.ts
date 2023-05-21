@@ -1,8 +1,9 @@
-import { ITree } from 'app/interfaces/tree.interface';
+import { Trees } from "app/interfaces/tress.interface";
 
-export interface IRepo {
+
+export interface Repo {
   sha: string;
-  tree: ITree[];
+  tree: Trees;
   truncated: boolean;
   url: string;
 }
