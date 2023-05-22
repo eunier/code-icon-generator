@@ -1,5 +1,4 @@
-import { Trees } from "app/interfaces/tress.interface";
-
+import { Trees } from '@workspace/code-icon-generator/interfaces';
 
 export interface Repo {
   sha: string;
