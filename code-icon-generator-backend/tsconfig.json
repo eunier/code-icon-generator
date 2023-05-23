@@ -12,14 +12,5 @@
   ],
   "compilerOptions": {
     "esModuleInterop": true,
-    "baseUrl": "./src",
-    "paths": {
-      "@workspace/rxjs/interfaces": [
-        "../../../libs/rxjs/src/lib/interfaces/index.ts"
-      ],
-      "@workspace/code-icon-generator/interfaces": [
-        "../../../libs/code-icon-generator/src/lib/interfaces/index.ts"
-      ]
-    }
   }
 }

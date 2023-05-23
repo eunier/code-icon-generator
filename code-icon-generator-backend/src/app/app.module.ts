@@ -1,13 +1,12 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { AppController } from 'app/app.controller';
-
-import { AppService } from 'app/app.service';
-import { RxjsService } from './core/services/rxjs/rxjs.service';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { CoreModule } from './core/core.module';
 
 @Module ({
-  imports: [HttpModule],
+  imports: [HttpModule, CoreModule],
   controllers: [AppController],
-  providers: [AppService, RxjsService],
+  providers: [AppService],
 })
 export class AppModule {}

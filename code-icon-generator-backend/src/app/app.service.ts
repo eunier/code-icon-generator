@@ -1,22 +1,22 @@
 import { HttpService } from '@nestjs/axios';
-import { Injectable } from '@nestjs/common';
-import { Tree, Trees } from '@workspace/code-icon-generator/interfaces';
-import { RxjsService } from 'app/core/services/rxjs/rxjs.service';
-import { Repo } from 'app/interfaces/repo.interface';
+import { Inject, Injectable } from '@nestjs/common';
+import { Tree } from '@workspace/code-icon-generator/interfaces';
+import { Rxjs } from '@workspace/nestjs-rxjs';
 import { Observable } from 'rxjs';
+import { Repo } from './interfaces/repo.interface';
 
 @Injectable ()
 export class AppService {
   constructor (
     private readonly _http: HttpService,
-    private readonly _rxjs: RxjsService,
+    @Inject ('RXJS_TOKEN') private readonly _rxjs: Rxjs,
   ) {}
 
   public getData (): { message: string } {
     return { message: 'Hello API' };
   }
 
-  public getIcons (): Observable<Trees> {
+  public getIcons (): Observable<Tree[]> {
     return this._http
       .get<Repo> (
         'https://api.github.com/repos/PKief/vscode-material-icon-theme/git/trees/main?recursive=1',
