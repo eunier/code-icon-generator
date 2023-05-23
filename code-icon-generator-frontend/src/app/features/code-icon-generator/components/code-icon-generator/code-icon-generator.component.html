@@ -1,0 +1,5 @@
+<ng-container *ngFor="let icon of icons$ | async">
+  <div>{{ icon }}</div>
+  <br />
+  <div [innerHTML]="icon"></div>
+</ng-container>
