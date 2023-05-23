@@ -1,15 +1,15 @@
 import { HttpService } from '@nestjs/axios';
 import { Inject, Injectable } from '@nestjs/common';
 import { Tree } from '@workspace/code-icon-generator/interfaces';
-import { Rxjs } from '@workspace/nestjs-rxjs';
+import { RXJS_TOKEN, Rxjs } from '@workspace/nestjs-rxjs';
 import { Observable } from 'rxjs';
 import { Repo } from './interfaces/repo.interface';
 
 @Injectable ()
 export class AppService {
   constructor (
+    @Inject (RXJS_TOKEN) private readonly _rxjs: Rxjs,
     private readonly _http: HttpService,
-    @Inject ('RXJS_TOKEN') private readonly _rxjs: Rxjs,
   ) {}
 
   public getData (): { message: string } {

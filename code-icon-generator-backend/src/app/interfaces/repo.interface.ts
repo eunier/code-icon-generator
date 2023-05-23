@@ -1,8 +1,8 @@
-import { Trees } from '@workspace/code-icon-generator/interfaces';
+import { Tree } from '@workspace/code-icon-generator/interfaces';
 
 export interface Repo {
   sha: string;
-  tree: Trees;
+  tree: Tree[];
   truncated: boolean;
   url: string;
 }
