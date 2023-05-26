@@ -1,0 +1,22 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CodeIconGeneratorStoreService } from '../../services/code-icon-generator-store/code-icon-generator-store.service';
+
+@Component({
+  selector: 'app-code-icon-generator',
+  templateUrl: './code-icon-generator.component.html',
+  styleUrls: ['./code-icon-generator.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class CodeIconGeneratorComponent {
+  public readonly icons$ = this._store.icons$;
+
+  constructor(private readonly _store: CodeIconGeneratorStoreService) {}
+}
+// (async () => {
+//   await 'value';
+
+//   const createValue = () => 'value';
+//   await createValue();
+// })();
+const x: Array<string> = ['a', 'b'];
+const y: ReadonlyArray<string> = ['a', 'b'];

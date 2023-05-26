@@ -1,0 +1,151 @@
+{
+  "name": "code-icon-generator-frontend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/code-icon-generator-frontend/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/code-icon-generator-frontend",
+        "index": "apps/code-icon-generator-frontend/src/index.html",
+        "main": "apps/code-icon-generator-frontend/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/code-icon-generator-frontend/tsconfig.app.json",
+        "assets": [
+          "apps/code-icon-generator-frontend/src/favicon.ico",
+          "apps/code-icon-generator-frontend/src/assets"
+        ],
+        "styles": ["apps/code-icon-generator-frontend/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "code-icon-generator-frontend:build:production"
+        },
+        "development": {
+          "browserTarget": "code-icon-generator-frontend:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/code-icon-generator-frontend/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "code-icon-generator-frontend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/code-icon-generator-frontend/**/*.ts",
+          "apps/code-icon-generator-frontend/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{appRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/code-icon-generator-frontend/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "code-icon-generator-frontend:build"
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "apps/code-icon-generator-frontend/.storybook",
+        "browserTarget": "code-icon-generator-frontend:build",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/code-icon-generator-frontend",
+        "configDir": "apps/code-icon-generator-frontend/.storybook",
+        "browserTarget": "code-icon-generator-frontend:build",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c apps/code-icon-generator-frontend/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "code-icon-generator-frontend:build-storybook",
+        "staticFilePath": "dist/storybook/code-icon-generator-frontend"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "code-icon-generator-frontend:build-storybook:ci"
+        }
+      }
+    }
+  }
+}
