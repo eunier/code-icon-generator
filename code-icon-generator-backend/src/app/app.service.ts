@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Inject, Injectable } from '@nestjs/common';
 import { Tree } from '@workspace/code-icon-generator/interfaces';
-import { RXJS_TOKEN, Rxjs } from '@workspace/nestjs-rxjs';
+import { RXJS_TOKEN, Rxjs } from '@workspace/nestjs/rxjs';
 import { Observable } from 'rxjs';
 import { Repo } from './interfaces/repo.interface';
 
