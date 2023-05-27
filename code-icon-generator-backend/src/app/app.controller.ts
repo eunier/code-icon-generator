@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { Observable } from 'rxjs';
 import { Tree } from '@workspace/code-icon-generator/interfaces';
+import { Observable } from 'rxjs';
 import { AppService } from './app.service';
 
 @Controller ()
