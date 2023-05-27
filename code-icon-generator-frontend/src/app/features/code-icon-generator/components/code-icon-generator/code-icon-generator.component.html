@@ -1,0 +1,7 @@
+<ng-container *ngFor="let icon of icons$ | async">
+  <app-svg-string-renderer
+    [svgString]="icon.svg"
+  ></app-svg-string-renderer>
+
+  <p>{{ icon.isFolder ? 'folder' : 'no folder' }}</p>
+</ng-container>
