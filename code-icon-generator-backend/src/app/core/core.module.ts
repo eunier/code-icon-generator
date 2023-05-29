@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { NestjsRxjsModule } from '@workspace/nestjs/rxjs';
 
 @Module ({
-  providers: [],
-  exports: [],
+  imports: [NestjsRxjsModule],
+  exports: [NestjsRxjsModule],
 })
 export class CoreModule {}
