@@ -1,8 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { TreeItem } from './tree-item.entity';
 
 @Entity ()
-export class GitRepository {
+export class GitRepo {
   @PrimaryGeneratedColumn ()
   public id: number;
 
@@ -15,6 +14,6 @@ export class GitRepository {
   @Column ()
   public truncated: boolean;
 
-  @Column ()
+  @Column ({ unique: true })
   public url: string;
 }

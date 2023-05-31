@@ -1,10 +1,25 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { NestjsRxjsModule } from '@workspace/nestjs/rxjs';
-import { dataSourceProvider } from './providers/data-source.provider';
+import { GitRepo } from '../features/icons/entities/git-repository.entity';
+import { TreeItem } from '../features/icons/entities/tree-item.entity';
 
 @Module ({
-  imports: [NestjsRxjsModule],
-  providers: [dataSourceProvider],
+  imports: [
+    NestjsRxjsModule,
+    TypeOrmModule.forRoot ({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'postgres',
+      database: 'postgres',
+      entities: [GitRepo, TreeItem],
+      synchronize: true,
+      logging: true,
+    }),
+  ],
+  providers: [],
   exports: [NestjsRxjsModule],
 })
 export class CoreModule {}
