@@ -13,7 +13,7 @@ import { TreeItem } from '../features/icons/entities/tree-item.entity';
       port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database: 'postgres',
+      database: 'code_icon_generator',
       entities: [GitRepo, TreeItem],
       synchronize: true,
       logging: true,
