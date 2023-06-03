@@ -44,7 +44,7 @@ export class IconsService {
   private async _addGitRepoIfNotExisting (
     gitRepoRes: GitRepository,
   ): Promise<void> {
-    const existing = await this._gitRepositoryRepository.findBy ({
+    const existing = await this._gitRepositoryRepository.findBy (
       url: gitRepoRes.url,
     });
 
