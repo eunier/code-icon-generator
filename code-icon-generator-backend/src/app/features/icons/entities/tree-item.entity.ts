@@ -1,7 +1,16 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { GitRepo } from './git-repository.entity';
 
 @Entity ()
 export class TreeItem {
+  @ManyToOne (() => GitRepo, (gitRepo) => gitRepo.tree)
+  public gitRepo: GitRepo;
+
   @PrimaryGeneratedColumn ()
   public id: number;
 
@@ -14,7 +23,7 @@ export class TreeItem {
   @Column ()
   public sha: string;
 
-  @Column ()
+  @Column ({ nullable: true })
   public size?: number;
 
   @Column ()

@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { TreeItem } from './tree-item.entity';
 
 @Entity ()
 export class GitRepo {
@@ -8,8 +14,8 @@ export class GitRepo {
   @Column ()
   public sha: string;
 
-  // @Column ()
-  // public tree: TreeItem[];
+  @OneToMany (() => TreeItem, (treeItem) => treeItem.gitRepo)
+  public tree?: TreeItem[];
 
   @Column ()
   public truncated: boolean;
