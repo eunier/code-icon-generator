@@ -27,8 +27,8 @@ export class IconsService {
       )
       .pipe (
         this._rxjs.tap (async (res) => {
-          const gitRepo = await this._upsertGitRepo (res.data);
-          this._upsertTree (res.data, gitRepo);
+          // const gitRepo = await this._upsertGitRepo (res.data);
+          // this._upsertTree (res.data, gitRepo);
         }),
         this._rxjs.map ((res) =>
           res.data.tree.filter ((t) => t.path.endsWith ('.svg')),

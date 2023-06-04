@@ -6,14 +6,15 @@ import { IconsController } from './controllers/icons.controller';
 import { GitRepo } from './entities/git-repository.entity';
 import { TreeItem } from './entities/tree-item.entity';
 import { IconsService } from './services/icons.service';
+import { TasksService } from './tasks/tasks/tasks.service';
 
-@Module ({
+@Module({
   controllers: [IconsController],
   imports: [
     CoreModule,
     HttpModule,
-    TypeOrmModule.forFeature ([GitRepo, TreeItem]),
+    TypeOrmModule.forFeature([GitRepo, TreeItem]),
   ],
-  providers: [IconsService],
+  providers: [IconsService, TasksService],
 })
 export class IconsModule {}
