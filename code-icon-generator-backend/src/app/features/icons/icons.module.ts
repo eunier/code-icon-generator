@@ -5,16 +5,17 @@ import { CoreModule } from '../../core/core.module';
 import { IconsController } from './controllers/icons.controller';
 import { GitRepo } from './entities/git-repository.entity';
 import { TreeItem } from './entities/tree-item.entity';
-import { IconsService } from './services/icons.service';
-import { TasksService } from './tasks/tasks/tasks.service';
+import { GitHubApiService } from './services/git-hub-api/git-hub-api.service';
+import { IconsService } from './services/icons/icons.service';
+import { TasksService } from './services/tasks/tasks.service';
 
-@Module({
+@Module ({
   controllers: [IconsController],
   imports: [
     CoreModule,
     HttpModule,
-    TypeOrmModule.forFeature([GitRepo, TreeItem]),
+    TypeOrmModule.forFeature ([GitRepo, TreeItem]),
   ],
-  providers: [IconsService, TasksService],
+  providers: [GitHubApiService, IconsService, TasksService],
 })
 export class IconsModule {}
