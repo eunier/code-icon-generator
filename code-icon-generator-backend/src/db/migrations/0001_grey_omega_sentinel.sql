@@ -1,0 +1,1 @@
+ALTER TABLE "tree_item" ALTER COLUMN "file_data_id" DROP NOT NULL;

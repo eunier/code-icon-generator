@@ -1,25 +1,27 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { NestjsRxjsModule } from '@workspace/nestjs/rxjs';
-import { GitRepo } from '../features/icons/entities/git-repository.entity';
-import { TreeItem } from '../features/icons/entities/tree-item.entity';
-
-@Module ({
+import { NestjsOrmModule } from '@workspace/nestjs-orm';
+import { CamelCasePlugin } from 'kysely';
+import databaseConfigDrizzle from '../../../drizzle.config';
+import { Database } from '../../db/interfaces/database.interface';
+@Module({
   imports: [
-    NestjsRxjsModule,
-    TypeOrmModule.forRoot ({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'code_icon_generator',
-      entities: [GitRepo, TreeItem],
-      synchronize: true,
-      logging: true,
+    NestjsOrmModule.forRoot<Database>({
+      autoMigrate: true,
+      dbCredentials: {
+        database: databaseConfigDrizzle.dbCredentials.database,
+        host: databaseConfigDrizzle.dbCredentials.host,
+        password: databaseConfigDrizzle.dbCredentials.password,
+        port: databaseConfigDrizzle.dbCredentials.port,
+        user: databaseConfigDrizzle.dbCredentials.user,
+      },
+      driver: databaseConfigDrizzle.driver,
+      out: databaseConfigDrizzle.out,
+      projectRoot: 'apps/code-icon-generator-backend',
+      schema: '',
+      plugins: [new CamelCasePlugin()],
     }),
   ],
   providers: [],
-  exports: [NestjsRxjsModule],
+  exports: [],
 })
 export class CoreModule {}

@@ -58,6 +58,41 @@
           "codeCoverage": true
         }
       }
+    },
+    "db": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "drizzle-kit",
+        "cwd": "apps/code-icon-generator-backend"
+      }
+    },
+    "db:generate:migration": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "drizzle-kit generate:pg",
+        "cwd": "apps/code-icon-generator-backend"
+      }
+    },
+
+    "db:generate:schema": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "kysely-codegen --camel-case --dialect postgres --exclude-pattern *.__* --log-level info --out-file ./src/db/interfaces/database-schema-generated.interface.ts",
+        "cwd": "apps/code-icon-generator-backend"
+      }
+    },
+    "db:studio": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "drizzle-kit studio",
+        "cwd": "apps/code-icon-generator-backend"
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
     }
   },
   "tags": []
