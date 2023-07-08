@@ -1,0 +1,38 @@
+<ng-container *ngFor="let icon of icons$ | async">
+  {{ icon.name }}
+  <app-svg-string-renderer
+    [svgString]="icon.svgString"
+  ></app-svg-string-renderer>
+</ng-container>
+
+<!-- <p>First Non Folder</p>
+
+<ng-container *ngIf="nonFolderIcon$ | async as nonFolderIcon">
+  <app-svg-string-renderer
+    [svgString]="nonFolderIcon.svg"
+  ></app-svg-string-renderer>
+</ng-container>
+
+<p>First Folder</p>
+
+<ng-container *ngIf="folderIcon$ | async as folderIcon">
+  <app-svg-string-renderer
+    [svgString]="folderIcon.svg"
+  ></app-svg-string-renderer>
+</ng-container>
+
+<p>Joined</p>
+
+<ng-container *ngIf="joined$ | async as joined">
+  <app-svg-string-renderer [svgString]="joined"></app-svg-string-renderer>
+</ng-container>
+
+<p>All</p>
+
+<ng-container *ngFor="let icon of icons$ | async">
+  <app-svg-string-renderer
+    [svgString]="icon.svg"
+  ></app-svg-string-renderer>
+
+  <p>{{ icon.isFolder ? 'folder' : 'no folder' }}</p>
+</ng-container> -->
